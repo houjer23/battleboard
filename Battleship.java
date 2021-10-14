@@ -17,6 +17,7 @@ public class Battleship {
 		for (int i = shipColumn; i<shipColumn+2; i++) 
 			board[shipRow][i]=1;
 		}
+				       //Places battleship positions in subsequent columns.
 	}
 	
 	public void placeShipVertical()
@@ -24,6 +25,7 @@ public class Battleship {
 		int shipRow = (int)(Math.random()*(board.length - 2);
 		for (int i = shipRow; i<shipRow+2; i++) 
 			board[i][shipColumn]=1;
+				    //Places battleship positions in subsequent rows. 
 		}
 	}//T
 	// This Method is used for testing place Ship
