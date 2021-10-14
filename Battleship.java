@@ -11,7 +11,21 @@ public class Battleship {
 	public void placeShip() {
 		
 	}
+	public void placeShipHorizontal() {
+		int shipRow = (int)(Math.random()*board.length);
+		int shipColumn = (int)(Math.random()*(board.length - 2);
+		for (int i = shipColumn; i<shipColumn+2; i++) 
+			board[shipRow][i]=1;
+		}
+	}
 	
+	public void placeShipVertical()
+		int shipColumn = (int)(Math.random()*board.length);
+		int shipRow = (int)(Math.random()*(board.length - 2);
+		for (int i = shipRow; i<shipRow+2; i++) 
+			board[i][shipColumn]=1;
+		}
+	}//T
 	// This Method is used for testing place Ship
 	public printBoard() {
 		System.out.println();
