@@ -39,5 +39,25 @@ public class Battleship {
 		}
 		System.out.println();
 	}
+	public void checkhit
+	{
+		
+		Scanner getpos = new Scanner(System.in);
+		System.out.print("Select Row you want to hit");
+		int row = scan.nextInt();
+		System.out.print("Select column you want to hit");
+		int column = scan.nextInt()-1;
+		guess = new int[10][10];
+		if(guess[row][column]==board[shipRow][shipColumn])
+		{
+			System.out.print("The ship has been hit");
+		}
+		else
+		{
+			System.out.print("Miss");
+		}
+		
+		
+    }			    
 	
 }
