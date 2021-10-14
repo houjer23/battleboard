@@ -4,7 +4,13 @@ public class Tester {
 	public static void main(String args[]) {
 		Scanner scan = new Scanner(System.in);
 		System.out.println("\nWelcome to Battleship game!");
+		
+		Battleship battleship = new Battleship();
+		battleship.printBoard();
+		
 		System.out.println("The computer will generate random positions for battleships");
+		
+		
 		System.out.println("Generating...");
 		System.out.print("Hit return to continue ");
 		scan.nextLine();
