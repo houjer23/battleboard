@@ -56,13 +56,26 @@ public class Battleship {
 		System.out.println();
 	} // end of print board method
 	
-	public void checkBoard(){
+	public void checkBoard()
+	{
 		guess = new int[10][10];//creates new array that stores user guesses
 		Scanner getpos = new Scanner(System.in);
 		System.out.print("What row do you want?");
 		int rowpos = getpos.nextInt();
 		System.out.print("What column do you want?");
-		int colpos = getpos.nextInt();
+		int colpos = getpos.nextInt();//Gets user guesses on rows and columns
+		for (int i=0; i<board.length; i++)//loops through the rows and columns respectively of the board array
+		{
+			for(int j=0; j<board[0].length; j++){
+				if(guess[rowpos][colpos]==board[i][j]{//If the guess array matches the board at any position, then the guess is correct
+					System.out.print("HIT");
+				}
+				else
+				{
+				  System.out.print("MISS");// if not then it's a miss
+				}
+	}
+			
 		
 		
 
