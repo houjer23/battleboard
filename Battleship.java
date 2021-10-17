@@ -55,5 +55,15 @@ public class Battleship {
 		} // end of looping through rows
 		System.out.println();
 	} // end of print board method
+	
+	public void checkBoard(){
+		guess = new int[10][10];//creates new array that stores user guesses
+		Scanner getpos = new Scanner(System.in);
+		System.out.print("What row do you want?");
+		int rowpos = getpos.nextInt();
+		System.out.print("What column do you want?");
+		int colpos = getpos.nextInt();
+		
+		
 
 } // end of Battleship class
