@@ -67,7 +67,7 @@ public class Battleship {
 		for (int i=0; i<board.length; i++)//loops through the rows and columns respectively of the board array
 		{
 			for(int j=0; j<board[0].length; j++){
-				if(guess[rowpos][colpos]==board[i][j]{//If the guess array matches the board at any position, then the guess is correct
+				if(board[i][j]==1 && guess[rowpos][colpos]==board[i][j]){//If the guess array matches the board at any position, then the guess is correct
 					System.out.print("HIT");
 				}
 				else
