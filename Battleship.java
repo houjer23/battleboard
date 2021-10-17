@@ -1,63 +1,59 @@
+import java.io.*;
+import java.util.*;
+// import all classes in Java
+
+// Battleship class -- all methods and actions of battleships are written here
 public class Battleship {
 	
-	private Set<Integer> ships;
-	int[][] board;
+	Set<Integer> ships; // This Set will be used later to check if the ship is hit
+	int[][] board; //  Board stores the locations of ships
 	
-	public Battleboard() {
-		ships = new HashSet<>();
-		board = new int[10][10];
-	}
+	public Battleship() { // construction method
+		ships = new HashSet<>(); // initialize the set
+		board = new int[10][10]; // initialize the board to size 10 * 10 
+	} // end of construction method
 	
-	public void placeShip() {
-		
-	}
-	public void placeShipHorizontal() {
-		int shipRow = (int)(Math.random()*board.length);
-		int shipColumn = (int)(Math.random()*(board.length - 2);
-		for (int i = shipColumn; i<shipColumn+2; i++) 
-			board[shipRow][i]=1;
-		}
-				       //Places battleship positions in subsequent columns.
-	}
-	
-	public void placeShipVertical()
-		int shipColumn = (int)(Math.random()*board.length);
-		int shipRow = (int)(Math.random()*(board.length - 2);
-		for (int i = shipRow; i<shipRow+2; i++) 
-			board[i][shipColumn]=1;
-				    //Places battleship positions in subsequent rows. 
-		}
-	}//T
-	// This Method is used for testing place Ship
-	public printBoard() {
-		System.out.println();
-		for (int i = 0; i < board.length; i ++) {
-			for (int j = 0; j < board[0].length; j ++) {
-				System.out.print(board[i][j] + " ");
+	public void placeShip(int n) { // method place ship helps to place the ship to the board n times
+		for (int i = 0; i < n; i ++) { // place ship n times
+			int random_num = (int) (Math.random() * 2); // random number (0 or 1)
+			if (random_num == 0) { // if the random number is 0, place the ship horizontally (call the helper method)
+				placeShipHorizontal();
+			} else {
+				placeShipVertical(); // if the random number is 1, place the ship horizontally (call the helper method)
 			}
-			System.out.println();
-		}
-		System.out.println();
-	}
-	public void checkhit
-	{
-		
-		Scanner getpos = new Scanner(System.in);
-		System.out.print("Select Row you want to hit");
-		int row = scan.nextInt();
-		System.out.print("Select column you want to hit");
-		int column = scan.nextInt()-1;
-		guess = new int[10][10];
-		if(guess[row][column]==board[shipRow][shipColumn])
-		{
-			System.out.print("The ship has been hit");
-		}
-		else
-		{
-			System.out.print("Miss");
-		}
-		
-		
-    }			    
+		} // end of for loop (place ship n times)
+	} // end of the place ship method
 	
-}
+	
+	public void placeShipHorizontal() { // helper method for place ship (place ship horizontally)
+		// the following shipRow and ship Column are the starting position of a ship
+		int shipRow = (int) (Math.random() * board.length); // choose a random number for row from 0 to board length (in this case is 9) -- this doesn't change for ship
+		int shipColumn = (int)(Math.random()*(board.length - 2)); // choose a random number for column from 0 to board length - 2 (in this case is 7) because the ship size is 3 -- this changes for the ship
+		for (int i = shipColumn; i <= shipColumn + 2; i++) { // column number add 1 each time
+			// Set the whole ship, indicated by 1 in the board
+			board[shipRow][i] = 1;
+		} // end of the for loop
+	} // end of helper method for place ship (place ship horizontally)
+	
+	public void placeShipVertical() { // helper method for place ship (place ship vertically)
+		// the following shipRow and ship Column are the starting position of a ship
+		int shipColumn = (int)(Math.random()*board.length); // choose a random number for column from 0 to board length (in this case is 9) -- this doesn't change for the ship
+		int shipRow = (int)(Math.random()*(board.length - 2)); // choose a random number for row from 0 to board length - 2 (in this case is 7) because the ship size is 3 -- this changes for the ship
+		for (int i = shipRow; i <= shipRow+2; i++) { // row number add 1 each time
+			// Set the whole ship, indicated by 1 in the board
+			board[i][shipColumn] = 1;
+		} // end of the for loop
+	} // end of helper method for place ship (place ship vertically)
+	
+	public void printBoard() { // This method prints the board with ships
+		System.out.println();
+		for (int i = 0; i < board.length; i ++) { // looping through rows
+			for (int j = 0; j < board[0].length; j ++) { // looping through columns
+				System.out.print(board[i][j] + " "); // print that position (indicated by rows and columns)
+			} // end of looping through columns
+			System.out.println();
+		} // end of looping through rows
+		System.out.println();
+	} // end of print board method
+
+} // end of Battleship class
