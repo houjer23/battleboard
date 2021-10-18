@@ -1,17 +1,16 @@
 import java.io.*;
 import java.util.*;
 
-
-public Humanboard() 
-{ // construction method
+public class Humanboard
+{
+     public Humanboard() 
+      { // construction method
 		humanboard = new int[10][10]; // initialize the board to size 10 * 10
 		computerguess = new int[10][10]; // initialize the guess to size 10 * 10
 		posGuessed = 0;
-} // end of construction method
+       } // end of construction method
 		
 		  
-		 
-		 
 		 
       public void placeShiphuman(int n) 
 	{ // method place ship helps to place the ship to the board n times
@@ -29,7 +28,8 @@ public Humanboard()
 				}
 			} else 
 			{
-				if (placeShipVerticalhuman() == false) {
+				if (placeShipVerticalhuman() == false) 
+				{
 					i--;
 				} // if the random number is 1, place the ship horizontally (call the helper method)
 			}
@@ -40,7 +40,10 @@ public Humanboard()
 	public void placeShipHorizontalhuman() 
 	{  
 		Scanner getcol = new Scanner(System.in);
+		System.out.print("Select col");
 		int humancol = getcol.nextInt();
+		System.out.print("select row");
+		int humanrow = getcol.nextInt();
 		// helper method for place ship (place ship horizontally)
 		// the following shipRow and ship Column are the starting position of a ship 
 		// choose a random number for row from 0 to board length (in this case is 9) -- this doesn't change for ship
@@ -48,7 +51,7 @@ public Humanboard()
 		for (int i = humancol; i <= humancol + 2; i++) 
 		{ 
 			
-			board[humanrow][i] = 1;
+			humanboard[humanrow][i] = 1;
 		} 
 	} 
 	
@@ -56,18 +59,22 @@ public Humanboard()
 	{
 		
 		Scannergetrow = new Scanner(System.in);
-		int humanrow = getrow.nextInt();
+		System.out.print("Input row");
+		humanrow = getrow.nextInt();
+		System.out.print("Input column");
+		humancol = getrow.nextInt();
+		
 		humanrow-=2;
 		for(int i = humanrow; i <= humanrow+2; i++)
 		{
-			if(board[i][humancol]==1)
+			if(humanboard[i][humancol]==1)
 			{
 				return false;
 			}
 		}
-		 for (int i = shipRow; i <= shipRow+2; i++) 
+		for (int i = shipRow; i <= shipRow+2; i++) 
 		 {
-			board[i][humancol]==1
+			humanboard[i][humancol]==1
 			
 			
 			
@@ -76,4 +83,6 @@ public Humanboard()
 	}
   }
  }
+
+}
 
