@@ -7,10 +7,12 @@ public class Battleship {
 	
 	Set<Integer> ships; // This Set will be used later to check if the ship is hit
 	int[][] board; //  Board stores the locations of ships
+	int[][] guess; // guess stores the user input locations
 	
 	public Battleship() { // construction method
 		ships = new HashSet<>(); // initialize the set
-		board = new int[10][10]; // initialize the board to size 10 * 10 
+		board = new int[10][10]; // initialize the board to size 10 * 10
+		guess = new int[10][10]; // initialize the guess to size 10 * 10
 	} // end of construction method
 	
 	public void placeShip(int n) { // method place ship helps to place the ship to the board n times
@@ -45,7 +47,7 @@ public class Battleship {
 		} // end of the for loop
 	} // end of helper method for place ship (place ship vertically)
 	
-	public void printBoard() { // This method prints the board with ships
+	public void printBoard() { // This method prints the board with user guess
 		System.out.println();
 		for (int i = 0; i < board.length; i ++) { // looping through rows
 			for (int j = 0; j < board[0].length; j ++) { // looping through columns
@@ -62,30 +64,13 @@ public class Battleship {
 		System.out.print("What row do you want?");
 		int rowPos = getpos.nextInt();
 		System.out.print("What column do you want?");
-		int colPos = getpos.nextInt();//Gets user guesses on rows and columns
-		if(board[rowPos][colPos] == 1){//If the guess array matches the board at the user input position, then the guess is correct
+		int colPos = getpos.nextInt(); //Gets user guesses on rows and columns
+		if(board[rowPos][colPos] == 1){ //If the guess array matches the board at the user input position, then the guess is correct
+			
 			System.out.print("HIT");
 		} else {
-			System.out.print("MISS");// if not then it's a miss
+			System.out.print("MISS"); // if not then it's a miss
 		}
-		/*
-		guess = new int[10][10];//creates new array that stores user guesses
-		Scanner getpos = new Scanner(System.in);
-		System.out.print("What row do you want?");
-		int rowpos = getpos.nextInt();
-		System.out.print("What column do you want?");
-		int colpos = getpos.nextInt();//Gets user guesses on rows and columns
-		for (int i=0; i<board.length; i++)//loops through the rows and columns respectively of the board array
-		{
-			for(int j=0; j<board[0].length; j++){
-				if(board[i][j]==1 && guess[rowpos][colpos]==board[i][j]){//If the guess array matches the board at any position, then the guess is correct
-					System.out.print("HIT");
-				}
-				else
-				{
-				  System.out.print("MISS");// if not then it's a miss
-				}
-		*/
 	}
 			
 		
