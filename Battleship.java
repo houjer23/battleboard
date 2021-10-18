@@ -21,9 +21,14 @@ public class Battleship {
 		for (int i = 0; i < n; i ++) { // place ship n times
 			int random_num = (int) (Math.random() * 2); // random number (0 or 1)
 			if (random_num == 0) { // if the random number is 0, place the ship horizontally (call the helper method)
-				placeShipHorizontal();
+				if(placeShipHorizontal()==false)
+				{
+					i--;
+				}
 			} else {
-				placeShipVertical(); // if the random number is 1, place the ship horizontally (call the helper method)
+				if (placeShipVertical() == false) {
+					i--;
+				} // if the random number is 1, place the ship horizontally (call the helper method)
 			}
 		} // end of for loop (place ship n times)
 	} // end of the place ship method
@@ -39,14 +44,27 @@ public class Battleship {
 		} // end of the for loop
 	} // end of helper method for place ship (place ship horizontally)
 	
-	public void placeShipVertical() { // helper method for place ship (place ship vertically)
+	public boolean placeShipVertical() {
+		 // helper method for place ship (place ship vertically)
 		// the following shipRow and ship Column are the starting position of a ship
 		int shipColumn = (int)(Math.random()*board.length); // choose a random number for column from 0 to board length (in this case is 9) -- this doesn't change for the ship
 		int shipRow = (int)(Math.random()*(board.length - 2)); // choose a random number for row from 0 to board length - 2 (in this case is 7) because the ship size is 3 -- this changes for the ship
-		for (int i = shipRow; i <= shipRow+2; i++) { // row number add 1 each time
+		for(int i = shipRow; i <= shipRow+2; i++)
+		{
+			if(board[i][shipColumn]==1)
+			{
+				return false;
+			}
+		}
+		 for (int i = shipRow; i <= shipRow+2; i++) 
+		 {
+			board[i][shipColumn]==1
+			
+			 // row number add 1 each time
 			// Set the whole ship, indicated by 1 in the board
-			board[i][shipColumn] = 1;
-		} // end of the for loop
+			
+		}
+		return true; // end of the for loop
 	} // end of helper method for place ship (place ship vertically)
 	
 	public void printBoard() { // This method prints the board with user guess
