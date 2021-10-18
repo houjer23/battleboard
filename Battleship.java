@@ -58,6 +58,17 @@ public class Battleship {
 	
 	public void checkBoard()
 	{
+		Scanner getpos = new Scanner(System.in);
+		System.out.print("What row do you want?");
+		int rowPos = getpos.nextInt();
+		System.out.print("What column do you want?");
+		int colPos = getpos.nextInt();//Gets user guesses on rows and columns
+		if(board[rowPos][colPos] == 1){//If the guess array matches the board at the user input position, then the guess is correct
+			System.out.print("HIT");
+		} else {
+			System.out.print("MISS");// if not then it's a miss
+		}
+		/*
 		guess = new int[10][10];//creates new array that stores user guesses
 		Scanner getpos = new Scanner(System.in);
 		System.out.print("What row do you want?");
@@ -74,6 +85,7 @@ public class Battleship {
 				{
 				  System.out.print("MISS");// if not then it's a miss
 				}
+		*/
 	}
 			
 		
