@@ -2,22 +2,24 @@ import java.io.*;
 import java.util.*;
 
 
-public class Humanboard
-	{
-		int determine;
-		public Humanboard()
-	  {
-		  Scanner getdetermine = new Scanner(System.in);
-		  determine = getdetermine.nextInt();
-		  System.out.print("Pick 0 for column placement pick 1 for row placement");
+public Humanboard() 
+{ // construction method
+		humanboard = new int[10][10]; // initialize the board to size 10 * 10
+		computerguess = new int[10][10]; // initialize the guess to size 10 * 10
+		posGuessed = 0;
+} // end of construction method
+		
 		  
 		 
 		 
 		 
-		 public void placeShiphuman(int n) 
-		 { // method place ship helps to place the ship to the board n times
+      public void placeShiphuman(int n) 
+	{ // method place ship helps to place the ship to the board n times
+		Scanner getdetermine = new Scanner(System.in);
+		System.out.print("Select numbers 0 or 1");
+		int determine = getdetermine.nextInt();
 		   for (int i = 0; i < n; i ++) 
-		  { // place ship n times
+		     { // place ship n times
 			 // random number (0 or 1)
 			if (getdetermine == 0) 
 			{ // if the random number is 0, place the ship horizontally (call the helper method)
