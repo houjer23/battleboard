@@ -8,11 +8,13 @@ public class Battleship {
 	Set<Integer> ships; // This Set will be used later to check if the ship is hit
 	int[][] board; //  Board stores the locations of ships
 	int[][] guess; // guess stores the user input locations
+	int posGuessed;
 	
 	public Battleship() { // construction method
 		ships = new HashSet<>(); // initialize the set
 		board = new int[10][10]; // initialize the board to size 10 * 10
 		guess = new int[10][10]; // initialize the guess to size 10 * 10
+		posGuessed = 0;
 	} // end of construction method
 	
 	public void placeShip(int n) { // method place ship helps to place the ship to the board n times
@@ -49,31 +51,29 @@ public class Battleship {
 	
 	public void printBoard() { // This method prints the board with user guess
 		System.out.println();
-		for (int i = 0; i < board.length; i ++) { // looping through rows
-			for (int j = 0; j < board[0].length; j ++) { // looping through columns
-				System.out.print(board[i][j] + " "); // print that position (indicated by rows and columns)
+		for (int i = 0; i < guess.length; i ++) { // looping through rows
+			for (int j = 0; j < guess[0].length; j ++) { // looping through columns
+				System.out.print(guess[i][j] + " "); // print that position (indicated by rows and columns)
 			} // end of looping through columns
 			System.out.println();
 		} // end of looping through rows
 		System.out.println();
 	} // end of print board method
 	
-	public void checkBoard()
-	{
+	public void checkBoard() {
 		Scanner getpos = new Scanner(System.in);
 		System.out.print("What row do you want?");
 		int rowPos = getpos.nextInt();
 		System.out.print("What column do you want?");
 		int colPos = getpos.nextInt(); //Gets user guesses on rows and columns
-		if(board[rowPos][colPos] == 1){ //If the guess array matches the board at the user input position, then the guess is correct
-			
+		if(board[rowPos][colPos] == 1) { //If the guess array matches the board at the user input position, then the guess is correct
 			System.out.print("HIT");
+			posGuessed ++;
 		} else {
 			System.out.print("MISS"); // if not then it's a miss
 		}
 	}
-			
-		
-		
-
+	
+	
+	
 } // end of Battleship class
