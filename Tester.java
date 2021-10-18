@@ -16,13 +16,14 @@ public class Tester {
 		System.out.println("Generating...");
 		battleship.placeShip(3); // calling placeShip method in battleship class
 		
+		/*
 		for (int i = 0; i < battleship.guess.length; i ++) { // looping through rows
 			for (int j = 0; j < battleship.guess[0].length; j ++) { // looping through columns
 				System.out.print(battleship.board[i][j] + " "); // print that position (indicated by rows and columns)
 			} // end of looping through columns
 			System.out.println();
 		} // end of looping through rows
-		
+		*/
 		
 		System.out.print("Hit return to continue ");
 		scan.nextLine();
@@ -35,3 +36,4 @@ public class Tester {
 		}
 	} // end of the program
 } // end of Tester class
+
