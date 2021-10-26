@@ -37,7 +37,7 @@ public class Battleship {
 		int shipRow = (int) (Math.random() * board.length); // choose a random number for row from 0 to board length (in this case is 9) -- this doesn't change for ship
 		int shipColumn = (int)(Math.random()*(board.length - 2)); // choose a random number for column from 0 to board length - 2 (in this case is 7) because the ship size is 3 -- this changes for the ship
 		for (int i = shipColumn; i <= shipColumn + 2; i++) { // column number add 1 each time
-			if(board[shipRow][i]==1) // This if statement check if these locations are already placed by ship or not
+			if(board[shipRow][i] == 1) // This if statement check if these locations are already placed by ship or not
 			{
 				return false;
 			}
@@ -76,7 +76,14 @@ public class Battleship {
 		for (int i = 0; i < guess.length; i ++) { // looping through rows
 			System.out.print(i + " ");
 			for (int j = 0; j < guess[0].length; j ++) { // looping through columns
-				System.out.print(guess[i][j] + " "); // print that position (indicated by rows and columns)
+				// print that position (indicated by rows and columns)
+				if (guess[i][j] == 1) {
+					System.out.print("X ");
+				} else if (guess[i][j] == 2) {
+					System.out.print("O ");
+				} else {
+					System.out.print("0 ");
+				}
 			} // end of looping through columns
 			System.out.println();
 		} // end of looping through rows
