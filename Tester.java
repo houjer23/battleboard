@@ -16,26 +16,17 @@ public class Tester {
 		System.out.println("Generating...");
 		battleship.placeShip(3); // calling placeShip method in battleship class
 		
-		/*
-		for (int i = 0; i < battleship.guess.length; i ++) { // looping through rows
-			for (int j = 0; j < battleship.guess[0].length; j ++) { // looping through columns
-				System.out.print(battleship.board[i][j] + " "); // print that position (indicated by rows and columns)
-			} // end of looping through columns
-			System.out.println();
-		} // end of looping through rows
-		*/
-		
 		System.out.print("Hit return to continue ");
 		scan.nextLine();
 		System.out.println("\nThe computer placed 3 ships");
 		System.out.println("Try to guess where the computer place the ship");
 		System.out.println("\n----------------------------------------------\n");
 		System.out.println("Guess the ship");
-		System.out.println("If you hit the ship, it will be indicated by 2");
-		System.out.println("If you doesn't hit the ship, it will be indicated by 1");
+		System.out.println("If you hit the ship, it will be indicated by O");
+		System.out.println("If you doesn't hit the ship, it will be indicated by X");
 		while (battleship.posGuessed < 9) {
 			battleship.printBoard(); // calling printBoard method in battleship class
-			battleship.checkBoard();
+			battleship.checkBoard(); // calling checkBoard method in battleship class
 		}
 		battleship.printBoard();
 		System.out.println("You win the game");
