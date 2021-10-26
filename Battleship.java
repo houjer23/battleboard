@@ -68,7 +68,13 @@ public class Battleship {
 	
 	public void printBoard() { // This method prints the board with user guess
 		System.out.println();
+		System.out.print(" ");
+		for (int i = 0; i < guess.length; i ++) {
+			System.out.print(" " + i);
+		}
+		System.out.println();
 		for (int i = 0; i < guess.length; i ++) { // looping through rows
+			System.out.print(i + " ");
 			for (int j = 0; j < guess[0].length; j ++) { // looping through columns
 				System.out.print(guess[i][j] + " "); // print that position (indicated by rows and columns)
 			} // end of looping through columns
