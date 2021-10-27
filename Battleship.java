@@ -15,16 +15,16 @@ public class Battleship {
 		posGuessed = 0;
 	} // end of construction method
 	
-	public void placeShip(int n) { // method place ship helps to place the ship to the board n times
-		for (int i = 0; i < n; i ++) { // place ship n times
+	public void placeShip() { // method place ship helps to place the ship to the board n times
+		for (int i = 2; i <= 4; i ++) { // place ship n times
 			int random_num = (int) (Math.random() * 2); // random number (0 or 1)
 			// placeShipHorizontal() and placeShipVertical() are true if the locations doesn't have ships already
 			if (random_num == 0) { // if the random number is 0, place the ship horizontally (call the helper method)
-				if (placeShipHorizontal() == false) {
+				if (placeShipHorizontal(i) == false) {
 					i--; // if the location is already placed by ship, need to place the ship again
 				}
 			} else {
-				if (placeShipVertical() == false) {
+				if (placeShipVertical(i) == false) {
 					i--; // if the location is already placed by ship, need to place the ship again
 				}
 			}
@@ -32,35 +32,35 @@ public class Battleship {
 	} // end of the place ship method
 	
 	
-	public boolean placeShipHorizontal() { // helper method for place ship (place ship horizontally)
+	public boolean placeShipHorizontal(int size) { // helper method for place ship (place ship horizontally)
 		// the following shipRow and ship Column are the starting position of a ship
 		int shipRow = (int) (Math.random() * board.length); // choose a random number for row from 0 to board length (in this case is 9) -- this doesn't change for ship
 		int shipColumn = (int)(Math.random()*(board.length - 2)); // choose a random number for column from 0 to board length - 2 (in this case is 7) because the ship size is 3 -- this changes for the ship
-		for (int i = shipColumn; i <= shipColumn + 2; i++) { // column number add 1 each time
+		for (int i = shipColumn; i < shipColumn + size; i++) { // column number add 1 each time
 			if(board[shipRow][i] == 1) // This if statement check if these locations are already placed by ship or not
 			{
 				return false;
 			}
 		} // end of the for loop
-		for (int i = shipColumn; i <= shipColumn + 2; i++) { // column number add 1 each time
+		for (int i = shipColumn; i < shipColumn + size; i++) { // column number add 1 each time
 			board[shipRow][i] = 1; // If these locations are not placed already, set the whole ship, indicated by 1 in the board
 		} // end of the for loop
 		return true;
 	} // end of helper method for place ship (place ship horizontally)
 	
-	public boolean placeShipVertical() {
-		 // helper method for place ship (place ship vertically)
+	public boolean placeShipVertical(int size) {
+		// helper method for place ship (place ship vertically)
 		// the following shipRow and ship Column are the starting position of a ship
 		int shipColumn = (int)(Math.random()*board.length); // choose a random number for column from 0 to board length (in this case is 9) -- this doesn't change for the ship
 		int shipRow = (int)(Math.random()*(board.length - 2)); // choose a random number for row from 0 to board length - 2 (in this case is 7) because the ship size is 3 -- this changes for the ship
-		for(int i = shipRow; i <= shipRow+2; i++) // row number add 1 each time
+		for(int i = shipRow; i < shipRow+size; i++) // row number add 1 each time
 		{
 			if (board[i][shipColumn]==1)  // This if statement check if these locations are already placed by ship or not
 			{
 				return false;
 			}
 		} // end of the for loop
-		for (int i = shipRow; i <= shipRow+2; i++) {  // row number add 1 each time
+		for (int i = shipRow; i < shipRow+size; i++) {  // row number add 1 each time
 			board[i][shipColumn] = 1;  // If these locations are not placed already, set the whole ship, indicated by 1 in the board			
 		} // end of the for loop
 		return true;
