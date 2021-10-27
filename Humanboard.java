@@ -97,7 +97,7 @@ public class Humanboard {
 			System.out.println("MISS"); // if not then it's a miss
 		}
 	}
-	*/
+	*//
 	
 	
 } // end of Battleship clas
