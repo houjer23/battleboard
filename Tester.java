@@ -14,7 +14,16 @@ public class Tester {
 		
 		System.out.println("The computer will generate random positions for battleships");
 		System.out.println("Generating...");
-		battleship.placeShip(3); // calling placeShip method in battleship class
+		battleship.placeShip(); // calling placeShip method in battleship class
+		
+		/*
+		for (int i = 0; i < battleship.board.length; i ++) {
+			for (int j = 0; j < battleship.board.length; j ++) {
+				System.out.print(battleship.board[i][j] + " ");
+			}
+			System.out.println();
+		}
+		*/
 		
 		System.out.print("Hit return to continue ");
 		scan.nextLine();
