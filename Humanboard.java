@@ -43,13 +43,13 @@ public class Humanboard {
 	
 	
 	public void placeShipHorizontal(int size, int shipRow, int shipColumn) {
-		for (int i = shipColumn; i <= shipColumn + size; i++) { // column number add 1 each time
+		for (int i = shipColumn; i < shipColumn + size; i++) { // column number add 1 each time
 			human_board[shipRow][i] = 1; // If these locations are not placed already, set the whole ship, indicated by 1 in the board
 		} // end of the for loop
 	} // end of helper method for place ship (place ship horizontally)
 	
 	public void placeShipVertical(int size, int shipRow, int shipColumn) {
-		for (int i = shipRow; i <= shipRow+size; i++) {  // row number add 1 each time
+		for (int i = shipRow; i < shipRow+size; i++) {  // row number add 1 each time
 			human_board[i][shipColumn] = 1;  // If these locations are not placed already, set the whole ship, indicated by 1 in the board			
 		} // end of the for loop
 		
@@ -97,7 +97,7 @@ public class Humanboard {
 			System.out.println("MISS"); // if not then it's a miss
 		}
 	}
-	*//
+	*/
 	
 	
 } // end of Battleship clas
