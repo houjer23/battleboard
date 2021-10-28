@@ -92,11 +92,15 @@ public class Computer_Ship {
 	} // end of print board method
 	
 	public void checkBoard() { // This method checks user input if matches with board
-		Scanner getpos = new Scanner(System.in);
-		System.out.print("What row do you want? ");
-		int rowPos = getpos.nextInt();
-		System.out.print("What column do you want? ");
-		int colPos = getpos.nextInt(); // Gets user guesses on rows and columns
+		do
+		{ // This method checks user input if matches with board
+		   Scanner getpos = new Scanner(System.in);
+		   System.out.print("What row do you want? ");
+		   int rowPos = getpos.nextInt();
+		   System.out.print("What column do you want? ");
+		
+		   int colPos = getpos.nextInt();
+		 }while((rowpos<1 && rowpos>9) || (colPos<1 && rowpos>9))//Restricts user input to a value between 1 and 9
 		if (guess[rowPos][colPos] == 2) {
 			System.out.println("The position is already hit");
 		} else if (board[rowPos][colPos] == 1 || board[rowPos][colPos] == 2 || board[rowPos][colPos] == 3) { //If the guess array matches the board at the user input position, then the guess is correct
