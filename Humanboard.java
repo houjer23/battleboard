@@ -13,6 +13,7 @@ public class Humanboard {
 		human_board = new int[10][10]; // initialize the board to size 10 * 10
 		computer_guess = new int[10][10]; // initialize the guess to size 10 * 10
 		posGuessed = 0;
+		int[] ships = {2, 3, 4};
 	} // end of construction method
 	
 	public void placeShip(int n) { // method place ship helps to place the ship to the board n times
@@ -53,51 +54,24 @@ public class Humanboard {
 			human_board[i][shipColumn] = 1;  // If these locations are not placed already, set the whole ship, indicated by 1 in the board			
 		} // end of the for loop
 		
-	} // end of helper method for place ship (place ship vertically)
+	} 
 	
-	/*
-	public void printBoard() { // This method prints the board with user guess
-		System.out.println();
-		System.out.print(" ");
-		for (int i = 0; i < guess.length; i ++) {
-			System.out.print(" " + i);
-		}
-		System.out.println();
-		for (int i = 0; i < guess.length; i ++) { // looping through rows
-			System.out.print(i + " ");
-			for (int j = 0; j < guess[0].length; j ++) { // looping through columns
-				// print that position (indicated by rows and columns)
-				if (guess[i][j] == 1) {
-					System.out.print("X ");
-				} else if (guess[i][j] == 2) {
-					System.out.print("O ");
-				} else {
-					System.out.print("0 ");
-				}
-			} // end of looping through columns
-			System.out.println();
-		} // end of looping through rows
-		System.out.println();
-	} // end of print board method
 	
 	public void checkBoard() { // This method checks user input if matches with board
-		Scanner getpos = new Scanner(System.in);
-		System.out.print("What row do you want? ");
-		int rowPos = getpos.nextInt();
-		System.out.print("What column do you want? ");
-		int colPos = getpos.nextInt(); // Gets user guesses on rows and columns
-		if (guess[rowPos][colPos] == 2) {
+		int shipRow = (int)(Math.random()*9);
+		int colPos = (int)(Math.random()*9); // Gets user guesses on rows and columns
+		if (computer_guess[rowPos][colPos] == 2) {
 			System.out.println("The position is already hit");
-		} else if (board[rowPos][colPos] == 1) { //If the guess array matches the board at the user input position, then the guess is correct
+		} else if (human_board[rowPos][colPos] == 1 || board[rowPos][colPos] == 2 || board[rowPos][colPos] == 3) { //If the guess array matches the board at the user input position, then the guess is correct
 			System.out.println("HIT");
-			guess[rowPos][colPos] = 2;
+			computer_guess[rowPos][colPos] = 2;
 			posGuessed ++;
+			ships[human_board[rowPos][colPos] - 1] --;
+			if (ships[human_board[rowPos][colPos] - 1] == 0) {
+				System.out.println("Ship Sank");
+			}
 		} else {
-			guess[rowPos][colPos] = 1;
+			computer_guess[rowPos][colPos] = 1;
 			System.out.println("MISS"); // if not then it's a miss
 		}
 	}
-	*/
-	
-	
-} // end of Battleship clas
