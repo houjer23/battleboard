@@ -5,17 +5,33 @@ import java.util.*;
 // Tester class -- running the game, access to Battleship class
 public class Tester {
 	public static void main(String args[]) { // program starts running here
-		Scanner scan = new Scanner(System.in); 
-		System.out.println("\nWelcome to Battleship game!");
-		System.out.println("The computer will generate random positions. If you guess correctly, you got a HIT");
-		System.out.println("A ship is sunk when all its positions are hit");
+		System.out.println("\nWelcome to Battleship game!\n");
+		
+		
+		human_place_ships();
+		computer_place_ships();
+	} // end of the program
+	
+	
+	public static void human_place_ships() {
+		
 		Humanboard human = new Humanboard();
-		while(human.posGuessed<9)
+		human.placeShip();
+		while(human.posGuessed < 9)
 		{
 			human.printBoard();
 			human.checkBoard();
 		}
 		System.out.print("Computer wins the Game");
+		
+	}
+	
+
+	public static void computer_place_ships() {
+		Scanner scan = new Scanner(System.in); 
+		System.out.println("The computer will generate random positions. If you guess correctly, you got a HIT");
+		System.out.println("A ship is sunk when all its positions are hit");
+		
 		
 		Computer_Ship computer_board = new Computer_Ship(); // construct Battleship
 		
@@ -46,5 +62,5 @@ public class Tester {
 		}
 		computer_board.printBoard();
 		System.out.println("You win the game");
-	} // end of the program
+	}
 } // end of Tester class
