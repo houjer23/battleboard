@@ -8,6 +8,7 @@ public class Battleship {
 	int[][] board; //  Board stores the locations of ships
 	int[][] guess; // guess stores the user input locations
 	int posGuessed; // stores how many ships are hit
+	int[] ships = {2, 3, 4};
 	
 	public Battleship() { // construction method
 		board = new int[10][10]; // initialize the board to size 10 * 10
@@ -43,7 +44,7 @@ public class Battleship {
 			}
 		} // end of the for loop
 		for (int i = shipColumn; i < shipColumn + size; i++) { // column number add 1 each time
-			board[shipRow][i] = 1; // If these locations are not placed already, set the whole ship, indicated by 1 in the board
+			board[shipRow][i] = size - 1; // If these locations are not placed already, set the whole ship, indicated by 1 in the board
 		} // end of the for loop
 		return true;
 	} // end of helper method for place ship (place ship horizontally)
@@ -61,7 +62,7 @@ public class Battleship {
 			}
 		} // end of the for loop
 		for (int i = shipRow; i < shipRow+size; i++) {  // row number add 1 each time
-			board[i][shipColumn] = 1;  // If these locations are not placed already, set the whole ship, indicated by 1 in the board			
+			board[i][shipColumn] = size - 1;  // If these locations are not placed already, set the whole ship, indicated by 1 in the board			
 		} // end of the for loop
 		return true;
 	} // end of helper method for place ship (place ship vertically)
@@ -80,7 +81,7 @@ public class Battleship {
 				if (guess[i][j] == 1) {
 					System.out.print("X ");
 				} else if (guess[i][j] == 2) {
-					System.out.print("O ");
+					System.out.print("* ");
 				} else {
 					System.out.print("0 ");
 				}
@@ -98,10 +99,14 @@ public class Battleship {
 		int colPos = getpos.nextInt(); // Gets user guesses on rows and columns
 		if (guess[rowPos][colPos] == 2) {
 			System.out.println("The position is already hit");
-		} else if (board[rowPos][colPos] == 1) { //If the guess array matches the board at the user input position, then the guess is correct
+		} else if (board[rowPos][colPos] == 1 || board[rowPos][colPos] == 2 || board[rowPos][colPos] == 3) { //If the guess array matches the board at the user input position, then the guess is correct
 			System.out.println("HIT");
 			guess[rowPos][colPos] = 2;
 			posGuessed ++;
+			ships[board[rowPos][colPos] - 1] --;
+			if (ships[board[rowPos][colPos] - 1] == 0) {
+				System.out.println("Ship Sank");
+			}
 		} else {
 			guess[rowPos][colPos] = 1;
 			System.out.println("MISS"); // if not then it's a miss
