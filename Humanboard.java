@@ -23,15 +23,22 @@ public class Humanboard {
 		{
 			print_Humanboard();
 			System.out.println("This ship will be size " + i);
-			Scanner get_num = new Scanner(System.in);
-			System.out.print("Select 0 for horizontal ship and 1 for vertical ship ");
-			int vertical_or_horizontal =  get_num.nextInt();
-			
-			Scanner scan = new Scanner(System.in);
-			System.out.print("What column do you want? ");
-			int shipRow = scan.nextInt();
-			System.out.print("What row do you want?");
-			int shipColumn = scan.nextInt();
+		        do
+			{
+			   System.out.println("This ship will be size " + i);
+			   Scanner get_num = new Scanner(System.in);
+			   System.out.print("Select 0 for horizontal ship and 1 for vertical ship ");
+			   int vertical_or_horizontal =  get_num.nextInt();
+			}while(vertical_or_horizontal!=1 || vertical_or_horizontal !=0); //restricts user input to 0 and 1;
+			  
+			do
+			{
+			  Scanner scan = new Scanner(System.in);
+			  System.out.print("What column do you want? ");
+			  int shipRow = scan.nextInt();
+			  System.out.print("What row do you want?");
+			  int shipColumn = scan.nextInt();
+			}while((shipRow<1 && shipRow>9) || (shipColumn<1 && shipRow>9) ); //restricts user input to number between 1 and 9
 			
 			if(vertical_or_horizontal==0)
 			{
