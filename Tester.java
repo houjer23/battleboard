@@ -9,6 +9,13 @@ public class Tester {
 		System.out.println("\nWelcome to Battleship game!");
 		System.out.println("The computer will generate random positions. If you guess correctly, you got a HIT");
 		System.out.println("A ship is sunk when all its positions are hit");
+		Humanboard human = new Humanboard();
+		while(human.posGuessed<9)
+		{
+			human.printBoard();
+			human.checkBoard();
+		}
+		System.out.print("Computer wins the Game");
 		
 		Computer_Ship computer_board = new Computer_Ship(); // construct Battleship
 		
