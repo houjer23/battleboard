@@ -3,14 +3,14 @@ import java.util.*;
 // import all classes in Java
 
 // Battleship class -- all methods and actions of battleships are written here
-public class Battleship {
+public class Computer_Ship {
 	
 	int[][] board; //  Board stores the locations of ships
 	int[][] guess; // guess stores the user input locations
 	int posGuessed; // stores how many ships are hit
 	int[] ships = {2, 3, 4};
 	
-	public Battleship() { // construction method
+	public Computer_Ship() { // construction method
 		board = new int[10][10]; // initialize the board to size 10 * 10
 		guess = new int[10][10]; // initialize the guess to size 10 * 10
 		posGuessed = 0;
