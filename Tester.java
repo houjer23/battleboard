@@ -6,9 +6,8 @@ import java.util.*;
 public class Tester {
 	public static void main(String args[]) { // program starts running here
 		System.out.println("\nWelcome to Battleship game!\n");
-		
-		
 		human_place_ships();
+		System.out.println("Your turn\n");
 		computer_place_ships();
 	} // end of the program
 	
@@ -17,16 +16,18 @@ public class Tester {
 		
 		Humanboard human = new Humanboard();
 		human.placeShip();
+		int steps = 0;
 		while(human.posGuessed < 9)
 		{
+			steps ++;
 			human.printBoard();
 			human.checkBoard();
 		}
-		System.out.print("Computer wins the Game");
+		System.out.println("Computer wins the Game in " + steps + " steps");
 		
 	}
 	
-
+	
 	public static void computer_place_ships() {
 		Scanner scan = new Scanner(System.in); 
 		System.out.println("The computer will generate random positions. If you guess correctly, you got a HIT");
