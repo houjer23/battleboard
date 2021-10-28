@@ -14,7 +14,6 @@ public class Humanboard {
 		human_board = new int[10][10]; // initialize the board to size 10 * 10
 		computer_guess = new int[10][10]; // initialize the guess to size 10 * 10
 		posGuessed = 0;
-		
 	} // end of construction method
 	
 	public void placeShip() { // method place ship helps to place the ship to the board n times
@@ -22,24 +21,46 @@ public class Humanboard {
 		for (int i = 2; i <= 4; i ++) 
 		{
 			print_Humanboard();
+			
 			System.out.println("This ship will be size " + i);
-		        do
-			{
-			   System.out.println("This ship will be size " + i);
+			int vertical_or_horizontal;
+		    do {
 			   Scanner get_num = new Scanner(System.in);
-			   System.out.print("Select 0 for horizontal ship and 1 for vertical ship ");
-			   int vertical_or_horizontal =  get_num.nextInt();
-			}while(vertical_or_horizontal!=1 || vertical_or_horizontal !=0); //restricts user input to 0 and 1;
-			  
-			do
-			{
+			   System.out.print("Select 0 for horizontal ship and 1 for vertical ship: ");
+			   vertical_or_horizontal = get_num.nextInt();
+			} while (vertical_or_horizontal != 1 && vertical_or_horizontal != 0); //restricts user input to 0 and 1;
+			
+			
+			int shipRow;
+			int shipColumn;
+			Scanner scan = new Scanner(System.in);
+			System.out.print("What column do you want? ");
+			shipRow = scan.nextInt();
+			System.out.print("What row do you want? ");
+			shipColumn = scan.nextInt();
+			/*
+			do {
 			  Scanner scan = new Scanner(System.in);
 			  System.out.print("What column do you want? ");
-			  int shipRow = scan.nextInt();
-			  System.out.print("What row do you want?");
-			  int shipColumn = scan.nextInt();
-			}while((shipRow<1 && shipRow>9) || (shipColumn<1 && shipRow>9) ); //restricts user input to number between 1 and 9
+			  shipRow = scan.nextInt();
+			  System.out.print("What row do you want? ");
+			  shipColumn = scan.nextInt();
+			  
+			  
+			  boolean good_position;
+				if (vertical_or_horizontal == 0) {
+					if ((shipRow < 1 && shipRow > 9) || (shipColumn < 1 && shipRow > 9 - i)) {
+						
+					}
+				} else {
+					
+				}
 			
+			
+			
+			} while(((vertical_or_horizontal == 0) && ((shipRow < 1 || shipRow > 9) || (shipColumn < 1 || shipRow > 9 - i))) || ((vertical_or_horizontal == 0) && ((shipRow < 1 && shipRow > 9 - i) && (shipColumn < 1 && shipRow > 9))) ); //restricts user input to number between 1 and 9
+		
+			*/
 			if(vertical_or_horizontal==0)
 			{
 				placeShipHorizontal(i, shipRow, shipColumn);
@@ -108,8 +129,8 @@ public class Humanboard {
 	} // end of print board method
 	
 	public void checkBoard() { // This method checks user input if matches with board
-		int rowPos = (int)(Math.random()*9);
-		int colPos = (int)(Math.random()*9); // Gets user guesses on rows and columns
+		int rowPos = (int)(Math.random() * 10);
+		int colPos = (int)(Math.random() * 10); // Gets user guesses on rows and columns
 		if (computer_guess[rowPos][colPos] == 2) {
 			System.out.println("The position is already hit");
 		} else if (human_board[rowPos][colPos] == 1 || human_board[rowPos][colPos] == 2 || human_board[rowPos][colPos] == 3) { //If the guess array matches the board at the user input position, then the guess is correct
