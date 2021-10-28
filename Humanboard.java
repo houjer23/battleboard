@@ -9,6 +9,7 @@ public class Humanboard {
 	int[][] computer_guess; // guess stores the user input locations
 	int posGuessed; // stores how many ships are hit
 	int[] ships = {2, 3, 4};
+	
 	public Humanboard() { // construction method
 		human_board = new int[10][10]; // initialize the board to size 10 * 10
 		computer_guess = new int[10][10]; // initialize the guess to size 10 * 10
@@ -16,10 +17,11 @@ public class Humanboard {
 		
 	} // end of construction method
 	
-	public void placeShip(int n) { // method place ship helps to place the ship to the board n times
+	public void placeShip() { // method place ship helps to place the ship to the board n times
 		System.out.println("Please select column and row. Computer will guess your board");
 		for (int i = 2; i <= 4; i ++) 
 		{
+			print_Humanboard();
 			System.out.println("This ship will be size " + i);
 			Scanner get_num = new Scanner(System.in);
 			System.out.print("Select 0 for horizontal ship and 1 for vertical ship ");
@@ -54,15 +56,56 @@ public class Humanboard {
 			human_board[i][shipColumn] = 1;  // If these locations are not placed already, set the whole ship, indicated by 1 in the board			
 		} // end of the for loop
 		
-	} 
+	}
 	
+	public void print_Humanboard() {
+		System.out.println();
+		System.out.print(" ");
+		for (int i = 0; i < human_board.length; i ++) {
+			System.out.print(" " + i);
+		}
+		System.out.println();
+		for (int i = 0; i < human_board.length; i ++) { // looping through rows
+			System.out.print(i + " ");
+			for (int j = 0; j < human_board[0].length; j ++) { // looping through columns
+				// print that position (indicated by rows and columns)
+				System.out.print(human_board[i][j] + " ");
+			} // end of looping through columns
+			System.out.println();
+		} // end of looping through rows
+		System.out.println();
+	}
+	
+	public void printBoard() { // This method prints the board with user guess
+		System.out.println();
+		System.out.print(" ");
+		for (int i = 0; i < computer_guess.length; i ++) {
+			System.out.print(" " + i);
+		}
+		System.out.println();
+		for (int i = 0; i < computer_guess.length; i ++) { // looping through rows
+			System.out.print(i + " ");
+			for (int j = 0; j < computer_guess[0].length; j ++) { // looping through columns
+				// print that position (indicated by rows and columns)
+				if (computer_guess[i][j] == 1) {
+					System.out.print("X ");
+				} else if (computer_guess[i][j] == 2) {
+					System.out.print("* ");
+				} else {
+					System.out.print("0 ");
+				}
+			} // end of looping through columns
+			System.out.println();
+		} // end of looping through rows
+		System.out.println();
+	} // end of print board method
 	
 	public void checkBoard() { // This method checks user input if matches with board
 		int rowPos = (int)(Math.random()*9);
 		int colPos = (int)(Math.random()*9); // Gets user guesses on rows and columns
 		if (computer_guess[rowPos][colPos] == 2) {
 			System.out.println("The position is already hit");
-		} else if (human_board[rowPos][colPos] == 1 || board[rowPos][colPos] == 2 || board[rowPos][colPos] == 3) { //If the guess array matches the board at the user input position, then the guess is correct
+		} else if (human_board[rowPos][colPos] == 1 || human_board[rowPos][colPos] == 2 || human_board[rowPos][colPos] == 3) { //If the guess array matches the board at the user input position, then the guess is correct
 			System.out.println("HIT");
 			computer_guess[rowPos][colPos] = 2;
 			posGuessed ++;
@@ -75,3 +118,4 @@ public class Humanboard {
 			System.out.println("MISS"); // if not then it's a miss
 		}
 	}
+}
