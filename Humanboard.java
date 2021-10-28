@@ -8,12 +8,12 @@ public class Humanboard {
 	int[][] human_board; //  Board stores the locations of ships
 	int[][] computer_guess; // guess stores the user input locations
 	int posGuessed; // stores how many ships are hit
-	
+	int[] ships = {2, 3, 4};
 	public Humanboard() { // construction method
 		human_board = new int[10][10]; // initialize the board to size 10 * 10
 		computer_guess = new int[10][10]; // initialize the guess to size 10 * 10
 		posGuessed = 0;
-		int[] ships = {2, 3, 4};
+		
 	} // end of construction method
 	
 	public void placeShip(int n) { // method place ship helps to place the ship to the board n times
@@ -38,7 +38,7 @@ public class Humanboard {
 		    else
 		    {
 				placeShipVertical(i, shipRow, shipColumn);
-			}
+		    }
 		} // end of for loop (place ship n times)
 	} // end of the place ship method
 	
@@ -58,7 +58,7 @@ public class Humanboard {
 	
 	
 	public void checkBoard() { // This method checks user input if matches with board
-		int shipRow = (int)(Math.random()*9);
+		int rowPos = (int)(Math.random()*9);
 		int colPos = (int)(Math.random()*9); // Gets user guesses on rows and columns
 		if (computer_guess[rowPos][colPos] == 2) {
 			System.out.println("The position is already hit");
