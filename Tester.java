@@ -31,7 +31,7 @@ public class Tester {
 		System.out.println("Try to guess where the computer place the ship");
 		System.out.println("\n----------------------------------------------\n");
 		System.out.println("Guess the ship");
-		System.out.println("If you hit the ship, it will be indicated by O");
+		System.out.println("If you hit the ship, it will be indicated by *");
 		System.out.println("If you doesn't hit the ship, it will be indicated by X");
 		while (battleship.posGuessed < 9) {
 			battleship.printBoard(); // calling printBoard method in battleship class
