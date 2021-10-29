@@ -1,0 +1,9 @@
+//For the program, Jerry and I created java files for the computer ship, player's board, and the tester file to run code from the battleboard and player files. 
+//In the computer ship file, Jerry wrote the code for print ship using nested for loops to print the 2d array for the battleship. The array starts out with 0s in every position. 
+//If you hit the ship, the numbers would change to 2. if miss then 1. 
+//In the hitboard program, I wrote code for computer to place ship in subsequent positions. However, Jerry helped me troubleshoot and place restrictions on where the computer can print correctly.
+//After Jerry polished the computer_board program, I pasted the code to a new file called human board where the user places their own ship. Jerry's logical corrections carried from the other file to the humanboard file. 
+//I changed the pasted program to use user inputs rather than random numbers and created two arrays for user generated board. 
+//I also wrote some do while loops to restrict user inputs in the human board file. 
+//Our programs include three methods. Place ship vertical, place ship horizontal, and print board. 
+//I printed the board for the human board. Jerry and I both contributed to the user interface such as printing directions. 
