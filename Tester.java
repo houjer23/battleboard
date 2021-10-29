@@ -1,8 +1,12 @@
+/*
+ *  By Kevin and Jerry
+ *  Tester class -- running the game, getting access to other classes
+ */
+
 import java.io.*;
 import java.util.*;
 // import all classes in Java
 
-// Tester class -- running the game, access to Battleship class
 public class Tester {
 	public static void main(String args[]) { // program starts running here
 		System.out.println("\nWelcome to Battleship game!\n");
@@ -12,7 +16,7 @@ public class Tester {
 	} // end of the program
 	
 	
-	public static void human_place_ships() {
+	public static void human_place_ships() { // method that human place ship and computer guess ship
 		
 		Humanboard human = new Humanboard();
 		human.placeShip();
@@ -25,10 +29,10 @@ public class Tester {
 		}
 		System.out.println("Computer wins the Game in " + steps + " steps");
 		
-	}
+	} // end of human place ships method
 	
 	
-	public static void computer_place_ships() {
+	public static void computer_place_ships() { // method that computer place ship and human guess ship
 		Scanner scan = new Scanner(System.in); 
 		System.out.println("The computer will generate random positions. If you guess correctly, you got a HIT");
 		System.out.println("A ship is sunk when all its positions are hit");
@@ -40,13 +44,6 @@ public class Tester {
 		System.out.println("Generating...");
 		computer_board.placeShip(); // calling placeShip method in battleship class
 		
-		
-		for (int i = 0; i < computer_board.board.length; i ++) {
-			for (int j = 0; j < computer_board.board.length; j ++) {
-				System.out.print(computer_board.board[i][j] + " ");
-			}
-			System.out.println();
-		}
 		
 		
 		System.out.print("Hit return to continue ");
@@ -63,5 +60,5 @@ public class Tester {
 		}
 		computer_board.printBoard();
 		System.out.println("You win the game");
-	}
+	} // end of computer place ships method
 } // end of Tester class
