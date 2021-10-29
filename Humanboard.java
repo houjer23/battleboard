@@ -63,11 +63,11 @@ public class Humanboard {
 			*/
 			if(vertical_or_horizontal==0)
 			{
-				placeShipHorizontal(i, shipRow, shipColumn);
+				placeShipHorizontal(i, shipRow, shipColumn);//Calling method to place ship horizontal
 		    }
 		    else
 		    {
-				placeShipVertical(i, shipRow, shipColumn);
+				placeShipVertical(i, shipRow, shipColumn);//Passes method with arguments to place ship vertical
 		    }
 		} // end of for loop (place ship n times)
 	} // end of the place ship method
@@ -90,7 +90,7 @@ public class Humanboard {
 		System.out.println();
 		System.out.print(" ");
 		for (int i = 0; i < human_board.length; i ++) {
-			System.out.print(" " + i);
+			System.out.print(" " + i); 
 		}
 		System.out.println();
 		for (int i = 0; i < human_board.length; i ++) { // looping through rows
@@ -100,7 +100,7 @@ public class Humanboard {
 				System.out.print(human_board[i][j] + " ");
 			} // end of looping through columns
 			System.out.println();
-		} // end of looping through rows
+		} // end of looping through rows 
 		System.out.println();
 	}
 	
